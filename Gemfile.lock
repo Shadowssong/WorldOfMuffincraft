@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/shadowssong/battle-muffin.git
-  revision: c9d0b04c2b2a0c2fcbac5df15d99a63b97b68b8d
+  revision: 0b8a3c51947b0c9b25cc92fd9ea8afa40abdfb1e
   specs:
     battle-muffin (1.0.0)
       httparty
