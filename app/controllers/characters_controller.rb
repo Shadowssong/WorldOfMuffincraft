@@ -69,11 +69,7 @@ class CharactersController < ApplicationController
   end
 
   def get_item_id(slot)
-    @items[slot]['id']
-    #if slot == "shirt"
-    #  ""
-    #else
-    #end
+    @items[slot]['id'] unless @items[slot].nil?
   end
 
   def get_item_url(slot)

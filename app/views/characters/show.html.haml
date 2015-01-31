@@ -41,8 +41,12 @@
         %div{:style => "display: inline-block; width: 100%; position: relative; float: left; margin-left: 200px"}
           -@mainhand.each do |gear|
             %ul{:style => "list-style: none; padding: 20px 20px; display: inline; " }
-              %li{:style => "display: inline"}= image_tag get_item_url(gear), {:style => "border-radius: 10px; display: inline; box-shadow: 7px 7px 5px #000000;"} 
+              %li{:style => "display: inline"}
+                %a.q3{:href => "http://www.wowhead.com/item=#{get_item_id(gear)}", rel: "item=#{get_item_id(gear)}"}
+                  = image_tag get_item_url(gear), {:style => "border-radius: 10px; display: inline; box-shadow: 7px 7px 5px #000000;"} 
       %div{:style => "display: inline-block; width: 15%; height: 100%; position: relative; float: left; "}
         -@right_column_gear.each do |gear|
           %ul{:style => "list-style: none; padding-left: 20px; padding-top: 5px" }
-            %li= image_tag get_item_url(gear), {style: "border-radius: 10px; box-shadow: 7px 7px 5px #000000;", alt: "Testing"} 
+            %li
+              %a.q3{:href => "http://www.wowhead.com/item=#{get_item_id(gear)}", rel: "item=#{get_item_id(gear)}"}
+                = image_tag get_item_url(gear), {:style => "border-radius: 10px; box-shadow: 7px 7px 5px #000000; "} 
