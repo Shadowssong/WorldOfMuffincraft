@@ -73,13 +73,13 @@ class CharactersController < ApplicationController
   end
 
   def get_item_url(slot)
-    if @items[slot].nil? and ( slot != "mainHand" || slot != "offHand" )
-      "blank_item_slot.png"
-    else
-      begin
-        "http://media.blizzard.com/wow/icons/56/#{@items[slot]['icon']}.jpg"
-      rescue
+    begin
+      "http://media.blizzard.com/wow/icons/56/#{@items[slot]['icon']}.jpg"
+    rescue
+      if slot == "mainHand" || slot == "offHand"
         "empty_weapon.png"
+      else
+        "blank_item_slot.png"
       end
     end
   end
