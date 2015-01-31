@@ -1,32 +1,29 @@
--# = @char_name
--# = @realm
--# = @character
-%div{:style => "display: block; width: 992px; height: 773px; background-image: url(#{get_background}); margin: 0px auto; color: white"}
+.character_wrapper{:style => "background-image: url(#{get_background});"}
   %div{:style => "display: inline-block; width: 100%; height: 110px; overflow: hidden "}
-    %div{:style => "display: inline-block; width: 40%; height: 100%; position: relative; float: left "}
+    %div{:style => "display: inline-block; width: 50%; height: 100%; position: relative; float: left "}
       %div{:style => "display: inline-block; width: 100%; height: 60%; "}
-        %div{:style => "display: inline-block; width: 60%; height: 100%;  "}
-          = @character.name
+        %div{:style => "display: inline-block; width: 250px; height: 100%; font-size: 56px; font-weight: bold; padding-left: 20px "}
+          = name
         %div{:style => "display: inline-block; width: 40%; height: 100%; float: right "}
-          %div{:style => "display: inline-block; width: 100%; height: 50%;  "}
+          %div{:style => "display: inline-block; width: 100%; height: 50%; font-size: 14px; color: #e0e0e0; padding-top: 13px "}
             = @title
-          %div{:style => "display: inline-block; width: 100%; height: 50%;  "}
-            = get_guild 
-      %div{:style => "display: inline-block; width: 100%; height: 40%;  "}
+          %div{:style => "display: inline-block; width: 100%; height: 50%; font-size: 20px; color: #ffb100 "}
+            = link_to get_guild 
+      %div{:style => "display: inline-block; width: 100%; height: 40%; padding-left: 20px; padding-top: 5px; color: #c69b6d "}
         = build_stats_string
-    %div{:style => "display: inline-block; width: 40%; height: 100%; position: relative; float: left "}
+    %div{:style => "display: inline-block; width: 30%; height: 100%; position: relative; float: left "}
     %div{:style => "display: inline-block; width: 20%; height: 100%; position: relative; float: left "}
-      %div{:style => "display: inline-block; width: 50%; height: 100%; float: left "}
-        = @character.get_items['averageItemLevel']
-      %div{:style => "display: inline-block; width: 50%; height: 100%; float: right "}
-        %div{:style => "display: inline-block; width: 100%; height: 50%; "}
+      %div{:style => "display: inline-block; width: 55px; height: 100%; float: left; font-size: 40px; font-weight: 900; padding-top: 13px"}
+        = average_item_level 
+      %div{:style => "display: inline-block; width: 128px; height: 100%; float: right; padding-top: 20px"}
+        %div{:style => "display: inline-block; width: 100%; "}
           average item level
         %div{:style => "display: inline-block; width: 100%; height: 50%; "}
-          = "(#{@character.get_items['averageItemLevelEquipped']} equipped)"
+          = "(#{average_item_level_equipped} equipped)"
   %div{:style => "display: inline-block; width: 95%; height: 900px; overflow: hidden "}
     %div{:style => "display: inline-block; width: 182px; height: 100%; position: relative; float: left"}
       %div{:style => "display: inline-block; width: 100%; height: 10%; position: relative; float: left; "}
-        = @character.achievement_points
+        = achievement_points 
       %div{:style => "display: inline-block; width: 100%; height: 90%; position: relative; float: left; "}
         %div{:style => "display: inline-block; width: 200px; height: 400px; position: relative; float: left; padding-left: 10px"}
           - @nav_bar.each do |nav_item|
@@ -36,14 +33,14 @@
       %div{:style => "display: inline-block; width: 15%; height: 100%; position: relative; float: left; "}
         -@left_column_gear.each do |gear|
           %ul{:style => "list-style: none; padding-left: 20px; padding-top: 5px" }
-            %li= image_tag "http://media.blizzard.com/wow/icons/56/inv_helm_mail_draenordungeon_c_01.jpg", {:style => "border-radius: 10px"} 
+            %li= image_tag get_item_url(gear), {:style => "border-radius: 10px; box-shadow: 7px 7px 5px #000000;"} 
       %div{:style => "display: inline-block; width: 70%; height: 100%; position: relative; float: left; "}
         %div{:style => "display: inline-block; width: 100%; height: 550px; position: relative; float: left; "}
         %div{:style => "display: inline-block; width: 100%; position: relative; float: left; margin-left: 200px"}
           -@mainhand.each do |gear|
             %ul{:style => "list-style: none; padding: 20px 20px; display: inline; " }
-              %li{:style => "display: inline"}= image_tag "http://media.blizzard.com/wow/icons/56/inv_bow_1h_draenorhonor_c_01.jpg", {:style => "border-radius: 10px; display: inline"} 
+              %li{:style => "display: inline"}= image_tag get_item_url(gear), {:style => "border-radius: 10px; display: inline; box-shadow: 7px 7px 5px #000000;"} 
       %div{:style => "display: inline-block; width: 15%; height: 100%; position: relative; float: left; "}
         -@right_column_gear.each do |gear|
           %ul{:style => "list-style: none; padding-left: 20px; padding-top: 5px" }
-            %li= image_tag "http://media.blizzard.com/wow/icons/56/inv_helm_mail_draenordungeon_c_01.jpg", {:style => "border-radius: 10px"} 
+            %li= image_tag get_item_url(gear), {style: "border-radius: 10px; box-shadow: 7px 7px 5px #000000;", alt: "Testing"} 
