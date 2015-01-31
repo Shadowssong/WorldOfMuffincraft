@@ -73,8 +73,8 @@ class CharactersController < ApplicationController
   end
 
   def get_item_url(slot)
-    if slot == "shirt"
-      "http://media.blizzard.com/wow/icons/56/inv_rareguildtabard.jpg"
+    if @items[slot].nil? and ( slot != "mainHand" || slot != "offHand" )
+      "blank_item_slot.png"
     else
       begin
         "http://media.blizzard.com/wow/icons/56/#{@items[slot]['icon']}.jpg"
