@@ -1,9 +1,12 @@
 !!!
 %html
   %head
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %script{src: "http://static.wowhead.com/widgets/power.js", type: "text/javascript"}
+      :javascript
+        var wowhead_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true }
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     %title= content_for?(:title) ? yield(:title) : 'World of Muffincraft'
-    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Worldofmuffincraft'}"}
+    %meta{name: "description", content: "#{content_for?(:description) ? yield(:description) : 'Worldofmuffincraft'}"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags

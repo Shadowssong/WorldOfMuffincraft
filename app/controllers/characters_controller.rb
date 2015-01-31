@@ -1,7 +1,7 @@
 require 'battle-muffin'
 
 class CharactersController < ApplicationController
-  helper_method :build_stats_string, :get_race, :get_background, :get_profile_main, :get_guild, :get_item_url, :name,  :average_item_level, :average_item_level_equipped, :achievement_points
+  helper_method :build_stats_string, :get_race, :get_background, :get_profile_main, :get_guild, :get_item_url, :name,  :average_item_level, :average_item_level_equipped, :achievement_points, :get_item_id
 
   def index
     #
@@ -18,9 +18,6 @@ class CharactersController < ApplicationController
     @mainhand         ||= [ "mainHand", "offHand" ] 
     @title            ||= get_current_title(@character.get_titles)
     @items            ||= @character.get_items
-  end
-
-  def nav_items
   end
 
   def get_current_title(titles)
@@ -69,6 +66,14 @@ class CharactersController < ApplicationController
     rescue
       ""
     end
+  end
+
+  def get_item_id(slot)
+    @items[slot]['id']
+    #if slot == "shirt"
+    #  ""
+    #else
+    #end
   end
 
   def get_item_url(slot)
