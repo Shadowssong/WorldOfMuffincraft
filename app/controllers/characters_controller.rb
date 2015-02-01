@@ -8,16 +8,18 @@ class CharactersController < ApplicationController
   end
 
   def show 
-    @client          ||= BattleMuffin.new("7argtwb4rtuy2ccwcfjs74eapm52juhv") 
-    @char_name        ||= params[:id].split("_").first.strip
-    @realm            ||= params[:id].split("_").last.strip
-    @character       ||= @client.character_handler.search(@realm, @char_name) 
-    @nav_bar          ||= ["Summary", "Hunter Pets", "Auctions", "Events", "Achievements", "Challenge Mode", "Pets & Mounts", "Professions", "Reputation", "PvP", "Activity", "Feed", "Guild"]
-    @left_column_gear ||= ["head", "neck", "shoulder", "back", "chest", "shirt", "tabard", "wrist" ]
-    @right_column_gear ||= ["hands", "waist", "legs", "feet", "finger1", "finger2", "trinket1", "trinket2" ]
-    @mainhand         ||= [ "mainHand", "offHand" ] 
-    @title            ||= get_current_title(@character.get_titles)
-    @items            ||= @character.get_items
+    @client             = BattleMuffin.new("7argtwb4rtuy2ccwcfjs74eapm52juhv") 
+    char_name          = params[:id].split("_").first.strip
+    realm              = params[:id].split("_").last.strip
+    @character          = @client.character_handler.search(realm, char_name) 
+    @all_info           = @character.all_info
+    @items              = @all_info['items']
+    @title              = get_current_title(@all_info['titles'])
+
+    @nav_bar            = ["Summary", "Hunter Pets", "Auctions", "Events", "Achievements", "Challenge Mode", "Pets & Mounts", "Professions", "Reputation", "PvP", "Activity", "Feed", "Guild"]
+    @left_column_gear   = ["head", "neck", "shoulder", "back", "chest", "shirt", "tabard", "wrist" ]
+    @right_column_gear  = ["hands", "waist", "legs", "feet", "finger1", "finger2", "trinket1", "trinket2" ]
+    @mainhand           = [ "mainHand", "offHand" ] 
   end
 
   def get_current_title(titles)
@@ -28,6 +30,7 @@ class CharactersController < ApplicationController
         return title['name']
       end
     end
+    return ""
   end
 
   def build_stats_string
@@ -47,7 +50,7 @@ class CharactersController < ApplicationController
   end
 
   def talent_specialization
-    @character.get_talents.each do |spec|
+    @all_info['talents'].each do |spec|
       return spec['spec']['name'] if spec['selected']
     end
   end
@@ -62,7 +65,7 @@ class CharactersController < ApplicationController
 
   def get_guild
     begin
-      @character.get_guild['name']
+      @all_info['guild']['name']
     rescue
       ""
     end
@@ -89,14 +92,14 @@ class CharactersController < ApplicationController
   end
 
   def average_item_level
-    @character.get_items['averageItemLevel']
+    @all_info['items']['averageItemLevel']
   end
 
   def average_item_level_equipped
-    @character.get_items['averageItemLevelEquipped']
+    @all_info['items']['averageItemLevelEquipped']
   end
 
   def achievement_points
-    @character.instance_variable_get(:@info)['achievementPoints']
+    @all_info['achievementPoints']
   end
 end
