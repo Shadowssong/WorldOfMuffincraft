@@ -32,14 +32,24 @@ class GuildsController < ApplicationController
     end
   end
 
+  def get_item_description(id)
+    Nokogiri::XML(HTTParty.get("http://www.wowhead.com/item=#{id}&xml").body).css('name').children.text
+  end
+
   def get_news_feed
     feed = [ ]
-    @guild.get_news.each do |item|
+    @guild.get_news.first(40).each do |item|
+      result = { }
+      result['character'] = item['character']
       if item['type'] == 'itemLoot'
-        feed << "#{item['character']} obtained #{item['itemId']}"
+        result['string'] = " obtained"
+        result['link'] = get_item_description(item['itemId'])
+        result['item_id'] = item['itemId']
       elsif item['type'] == 'playerAchievement'
-        feed << "#{item['character']} earned the achievement #{item['achievement']['title']} for #{item['achievement']['points']} points"
+        result['string'] = " earned the achievement "
+        result['link'] = "#{item['achievement']['title']} for #{item['achievement']['points']} points"
       end
+      feed << result
     end
     feed
   end
