@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/shadowssong/battle-muffin.git
-  revision: 3bb0a9065516c8e7ecadc5f239d52f3909dafd90
+  revision: c67e6815e7a43b1a4a0de81c6479d9cc29a2fd64
   specs:
     battle-muffin (1.0.0)
       httparty
@@ -264,6 +264,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  nokogiri
   pg
   pry
   quiet_assets

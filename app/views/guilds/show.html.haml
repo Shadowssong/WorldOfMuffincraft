@@ -1,0 +1,25 @@
+#guild_wrapper
+  #guild_header
+    #guild_header_name
+      #guild_name
+        = get_guild_name
+      #guild_description
+        = get_guild_description 
+  #guild_body
+    #guild_nav
+      %ul{style: "list-style: none"}
+        - @nav_elements.each do |nav|
+          %li= link_to nav
+    #guild_main_frame
+      #guild_main_frame_title
+        Recent News
+      #guild_main_frame_content
+        %ul{style: "list-style: none"}
+          -get_news_feed.each do |news|
+            %li
+              %hr
+              = link_to news['character'], character_path(id: "#{news['character']}_#{@realm}")
+              = news['string']
+              %a.q3{:href => "http://www.wowhead.com/item=#{news['item_id']}", rel: "item=#{news['item_id']}"}
+                = news['link']
+          %hr

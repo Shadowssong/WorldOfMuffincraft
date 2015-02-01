@@ -1,16 +1,16 @@
-%h1 Character
-%table.table.table-striped
-  %thead
-    %tr
-      %th Character Name
-      %th Realm
-  %tbody
-    %tr 
-      %td= link_to 'Sovrano', character_path(id: "Sovrano_Mal'Ganis")
-      %td Mal'ganis
-    %tr 
-      %td= link_to 'Maschera', character_path(id: "Maschera_Mal'Ganis")
-      %td Mal'ganis
-    %tr 
-      %td= link_to 'Facebacon', character_path(id: "Facebacon_Mal'Ganis")
-      %td Mal'ganis
+#character_wrapper
+  %table.table
+    %thead
+      %tr
+        %th Character Name
+        %th Realm
+    %tbody
+      %tr 
+        %td= link_to 'Sovrano', character_path(id: "Sovrano_Mal'Ganis")
+        %td Mal'ganis
+      %tr 
+        %td= link_to 'Maschera', character_path(id: "Maschera_Mal'Ganis")
+        %td Mal'ganis
+      %tr 
+        %td= link_to 'Facebacon', character_path(id: "Facebacon_Mal'Ganis")
+        %td Mal'ganis
