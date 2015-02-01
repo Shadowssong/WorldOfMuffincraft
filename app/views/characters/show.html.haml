@@ -1,33 +1,7 @@
 #character_wrapper{:style => "background-image: url(#{get_background});"}
-  #character_header
-    #character_header_left
-      #character_header_left_top
-        #character_name
-          = name
-        #guild_title
-          #title
-            = @title
-          #guild
-            = link_to get_guild, guild_path(id: "#{get_guild}_#{@realm}")
-      #character_header_left_bottom
-        = build_stats_string
-    #character_header_right
-      #average_items_number
-        = average_item_level
-      #average_item_equipped
-        #average_item_header
-          average item level
-        #average_item_equipped_value
-          = "(#{average_item_level_equipped} equipped)"
+  = render partial: 'header'
   #character_main_div
-    #left_nav_bar
-      #achievement_points
-        = image_tag "http://us.battle.net/wow/static/images/icons/achievements.gif", {style: "float: left; padding-top: 10px; padding-right: 5px" }
-        = achievement_points 
-      #left_nav_bar_main
-        - @nav_bar.each do |nav_item|
-          %ul#link_styling
-            %li= link_to nav_item
+    = render partial: 'nav'
     #character_image{:style => "background-image: url(#{get_profile_main});"}
       #gear_left_column
         -@left_column_gear.each do |gear|

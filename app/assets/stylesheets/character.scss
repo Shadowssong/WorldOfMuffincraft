@@ -170,6 +170,29 @@ ul#link_styling {
   float: left;
 }
 
+#character_body {
+  display: inline-block;
+  width: 740px;
+  height: 550px;
+  position: relative;
+  float: left;
+}
+
+#character_pets { 
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+#character_mounts { 
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
 a {
   color: #FFD700;
   text-decoration: none;

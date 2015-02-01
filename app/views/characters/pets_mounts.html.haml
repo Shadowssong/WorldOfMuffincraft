@@ -1,0 +1,23 @@
+#character_wrapper{style: "height: 1000px; "}
+  = render partial: 'header'
+  #character_main_div{style: "height: 1000px;"}
+    = render partial: 'nav'
+    #character_body
+      #character_pets
+        #guild_main_frame_title
+          = "Pets collected (#{@all_info['pets']['collected'].count})"
+        %ul#link_styling
+          - @all_info['pets']['collected'].first(15).each do |pet|
+            %li
+              = image_tag get_icon_url(pet['icon']), {:style => "display: inline; padding-right: 5px; padding-bottom: 5px"} 
+              = pet['name']
+          \...
+      #character_mounts
+        #guild_main_frame_title
+          = "Mounts collected (#{@all_info['mounts']['collected'].count})"
+        %ul#link_styling
+          - @all_info['mounts']['collected'].first(15).each do |mount|
+            %li
+              = image_tag get_icon_url(mount['icon']), {:style => "display: inline; padding-right: 5px; padding-bottom: 5px"} 
+              = mount['name']
+          \...
