@@ -8,7 +8,7 @@
           #title
             = @title
           #guild
-            = link_to get_guild 
+            = link_to get_guild, guild_path(id: "#{get_guild}_#{@realm}")
       #character_header_left_bottom
         = build_stats_string
     #character_header_right
@@ -22,6 +22,7 @@
   #character_main_div
     #left_nav_bar
       #achievement_points
+        = image_tag "http://us.battle.net/wow/static/images/icons/achievements.gif", {style: "float: left; padding-top: 10px; padding-right: 5px" }
         = achievement_points 
       #left_nav_bar_main
         - @nav_bar.each do |nav_item|
@@ -33,7 +34,7 @@
           %ul.gear_column
             %li
               %a.q3{:href => "http://www.wowhead.com/item=#{get_item_id(gear)}", rel: "item=#{get_item_id(gear)}"}
-                = image_tag get_item_url(gear), {:style => "border-radius: 10px; box-shadow: 7px 7px 5px #000000; border: solid; border-color: white; border-width: 2px; "} 
+                = image_tag get_item_url(gear), {:style => "border-radius: 10px; box-shadow: 7px 7px 5px #000000; border: solid; border-color: purple; border-width: 2px; "} 
       #gear_buffer
         #mainhand_gear_buffer
         #mainhand_gear_footer
@@ -41,10 +42,10 @@
             %ul#mainhand_gear_position
               %li{:style => "display: inline"}
                 %a.q3{:href => "http://www.wowhead.com/item=#{get_item_id(gear)}", rel: "item=#{get_item_id(gear)}"}
-                  = image_tag get_item_url(gear), {:style => "border-radius: 10px; display: inline; box-shadow: 7px 7px 5px #000000; border: solid; border-color: white; border-width: 2px;"} 
+                  = image_tag get_item_url(gear), {:style => "border-radius: 10px; display: inline; box-shadow: 7px 7px 5px #000000; border: solid; border-color: purple; border-width: 2px;"} 
       #gear_right_column
         -@right_column_gear.each do |gear|
           %ul.gear_column
             %li
               %a.q3{:href => "http://www.wowhead.com/item=#{get_item_id(gear)}", rel: "item=#{get_item_id(gear)}"}
-                = image_tag get_item_url(gear), {:style => "border-radius: 10px; box-shadow: 7px 7px 5px #000000; border: solid; border-color: white; border-width: 2px; "}
+                = image_tag get_item_url(gear), {:style => "border-radius: 10px; box-shadow: 7px 7px 5px #000000; border: solid; border-color: purple; border-width: 2px; "}
