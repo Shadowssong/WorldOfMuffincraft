@@ -1,15 +1,10 @@
 -# navigation styled for Bootstrap 3.0
 %nav.navbar.navbar-default.navbar-fixed-top
-  .container
-    .navbar-header
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      = link_to 'Home', root_path, class: 'navbar-brand'
-      = link_to 'Characters', characters_path, class: 'navbar-brand'
-      = link_to 'Guilds', guilds_path, class: 'navbar-brand'
+  #navbar-top
+    .navbar-header{style: "padding-left: 50px; padding-top: 15px; "}
+      = link_to 'Home', root_path, { class: "nav_link" }
+      = link_to 'Characters', characters_path, { class: "nav_link" }
+      = link_to 'Guilds', guilds_path, { class: "nav_link" }
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
         = render 'layouts/navigation_links'

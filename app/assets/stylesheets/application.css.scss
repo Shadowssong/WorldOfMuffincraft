@@ -15,10 +15,18 @@
  */
 
 body { 
-  background-image: image-url('wom_background_with_nav.png');
+  background-image: image-url('wom_background.png');
   background-position: center top;
   background-repeat: no-repeat;
-  background-color: #000;
+}
+
+#navbar-top { 
+  width: 1000px;
+  margin: 0px auto;
+  height: 55px;
+  background-image: image-url('wom_navbar.png');
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 
 main {
@@ -283,4 +291,29 @@ ul.gear_column {
   list-style: none;
   padding: 20px 20px;
   display: inline;
+}
+
+.nav_link { 
+  padding-right: 10px;
+}
+
+a.nav_link {
+  color: #00b6ff;
+  text-decoration: none;
+}
+
+a.nav_link:visited {
+  color: #00b6ff;
+  text-decoration: none;
+}
+
+a.nav_link:hover {
+  color: white;
+  text-decoration: none;
+}
+
+a.nav_link:active {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
 }
