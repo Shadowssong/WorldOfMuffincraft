@@ -10,16 +10,16 @@
       %ul{style: "list-style: none"}
         - @nav_elements.each do |nav|
           %li= link_to nav
-    %div{:style => "display: inline-block; width: 740px; height: 550px; position: relative; float: left; border: solid "}
-      %div{:style => "display: inline-block; width: 100%; height: 10%; position: relative; float: left; font-size: 22px; font-weight: normal; color: #7e3406; padding-left: 20px"}
+    #guild_main_frame
+      #guild_main_frame_title
         Recent News
-      %div{:style => "display: inline-block; width: 100%; height: 90%; position: relative; float: left;  "}
+      #guild_main_frame_content
         %ul{style: "list-style: none"}
           -get_news_feed.each do |news|
             %li
+              %hr
               = link_to news['character'], character_path(id: "#{news['character']}_#{@realm}")
               = news['string']
               %a.q3{:href => "http://www.wowhead.com/item=#{news['item_id']}", rel: "item=#{news['item_id']}"}
                 = news['link']
-              %hr
-
+          %hr

@@ -13,7 +13,11 @@ class GuildsController < ApplicationController
   end
 
   def get_guild_name
-    @guild.name.gsub!("%20", " ")
+    if @guild.name.include?("%20")
+      return @guild.name.gsub!("%20", " ")
+    else
+      return @guild.name
+    end
   end
 
   def get_guild_member_count
@@ -38,7 +42,7 @@ class GuildsController < ApplicationController
 
   def get_news_feed
     feed = [ ]
-    @guild.get_news.first(40).each do |item|
+    @guild.get_news.first(25).each do |item|
       result = { }
       result['character'] = item['character']
       if item['type'] == 'itemLoot'
@@ -48,6 +52,10 @@ class GuildsController < ApplicationController
       elsif item['type'] == 'playerAchievement'
         result['string'] = " earned the achievement "
         result['link'] = "#{item['achievement']['title']} for #{item['achievement']['points']} points"
+      elsif item['type'] == 'itemPurchase'
+        result['string'] = " purchased item"
+        result['link'] = get_item_description(item['itemId'])
+        result['item_id'] = item['itemId']
       end
       feed << result
     end
