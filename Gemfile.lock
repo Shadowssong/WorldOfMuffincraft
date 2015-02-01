@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/shadowssong/battle-muffin.git
-  revision: c67e6815e7a43b1a4a0de81c6479d9cc29a2fd64
+  revision: 4a9c2d5d3768bd03d3d55dec807bc753e97db6a9
   specs:
     battle-muffin (1.0.0)
       httparty
@@ -79,6 +79,7 @@ GEM
       execjs
     coffee-script-source (1.9.0)
     columnize (0.9.0)
+    dalli (2.7.2)
     database_cleaner (1.4.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
@@ -255,6 +256,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.1.0)
+  dalli
   database_cleaner
   factory_girl_rails
   faker
