@@ -21,20 +21,11 @@ body {
   background-color: #000;
 }
 
-.character_wrapper { 
-  display: block;
-  width: 992px;
-  height: 773px;
-  margin: 0px auto;
-  color: white
-}
-
 main {
   background-color: transparent;
   width: 1020px;
-  margin-top: 150px;
-  color: #peniscolor;
-  padding: 40px;
+  margin-top: 143px;
+  padding: 9px;
 }
 
 .navbar-default {
@@ -51,4 +42,245 @@ hr {
   background-image:      -o-linear-gradient(left, rgba(127,52,6,100), rgba(127,52,6,0.75), rgba(127,52,6,0)); 
   margin-top: 3px;
   margin-bottom: 3px;
+}
+
+#character_wrapper { 
+  display: block;
+  width: 992px;
+  height: 773px;
+  margin: 0px auto;
+  color: white;
+  border-radius: 20px 20px 0px 0px;
+}
+
+#character_header {
+  display: inline-block;
+  width: 100%;
+  height: 110px;
+  overflow: hidden;
+}
+
+#character_header_left {
+  display: inline-block;
+  height: 100%;
+  width: 65%;
+  position: relative;
+  float: left;
+}
+
+#character_header_right {
+  display: inline-block;
+  height: 100%;
+  width: 35%;
+  position: relative;
+  float: left;
+  margin-top: 6px;
+}
+
+#character_header_left_top {
+  display: inline-block;
+  width: 100%;
+  height: 60%;
+}
+
+#character_header_left_bottom {
+  display: inline-block;
+  width: 100%;
+  height: 40%;
+  padding-left: 20px;
+  padding-top: 5px;
+  color: #c69b6d;
+}
+
+#character_name {
+  display: inline-block;
+  height: 100%;
+  float:left;
+  font-size: 56px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+#guild_title {
+  display: inline-block;
+  width: 40%;
+  height: 100%;
+  margin-left: 10px;
+}
+
+#title {
+  display: inline-block;
+  width: 100%;
+  height: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  color: #9C9696;
+  padding-top: 22px;
+}
+
+#guild {
+  display: inline-block;
+  width: 100%;
+  height: 50%;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffb100;
+  margin-top: -6px;
+}
+
+#average_items_number {
+  display: inline-block;
+  height: 100%;
+  width: 55%;
+  float: left;
+  font-size: 40px;
+  font-weight: 900;
+  text-align: right;
+  padding-top: 13px;
+  padding-right: 7px;
+}
+
+#average_item_equipped {
+  display: inline-block;
+  width: 45%;
+  height: 100%;
+  float: left;
+  padding-top: 20px;
+}
+
+#average_item_header {
+  display: inline-block;
+  width: 100%;
+  color: #9C9696;
+  font-weight: 600;
+}
+
+#average_item_equipped_value{
+  display: inline-block;
+  width: 100%;
+  height: 50%;
+  font-weight: 600;
+  color: #9C9696;
+}
+
+#character_main_div {
+  display: inline-block;
+  width: 100%;
+  height: 650px;
+  overflow: hidden;
+}
+
+#left_nav_bar {
+  display: inline-block;
+  width: 182px;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+#achievement_points {
+  display: inline-block;
+  width: 100%;
+  height: 10%;
+  position: relative;
+  float: left;
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 20px;
+}
+
+#left_nav_bar_main {
+  display: inline-block;
+  width: 100%;
+  height: 90%;
+  position: relative;
+  float: left;
+  margin-top: 40px;
+  padding-right: 10px;
+}
+
+ul#link_styling {
+  list-style: none;
+  margin-left: -20px;
+}
+
+#character_image {
+  display: inline-block;
+  width: 740px;
+  height: 550px;
+  position: relative;
+  float: left;
+}
+
+a {
+  color: #FFD700;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #FFD700;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+a:active {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#gear_left_column {
+  display: inline-block;
+  width: 15%;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+#gear_buffer {
+  display: inline-block;
+  width: 70%;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+#gear_right_column {
+  display: inline-block;
+  width: 15%;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+ul.gear_column {
+  list-style: none;
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+#mainhand_gear_buffer {
+  display: inline-block;
+  width: 100%;
+  height: 550px;
+  position: relative;
+  float: left;
+}
+
+#mainhand_gear_footer {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  float: left;
+  margin-left: 200px;
+}
+
+#mainhand_gear_position {
+  list-style: none;
+  padding: 20px 20px;
+  display: inline;
 }
