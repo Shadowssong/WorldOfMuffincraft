@@ -1,3 +1,61 @@
 // Place all the styles related to the guild controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#guild_wrapper { 
+  display: block;
+  width: 992px;
+  height: 773px;
+  margin: 0px auto;
+  color: white;
+  border-radius: 20px 20px 0px 0px;
+}
+
+#guild_header {
+  display: inline-block;
+  width: 100%;
+  height: 110px;
+  overflow: hidden;
+}
+
+#guild_header_name {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  float: left;
+}
+
+#guild_name {
+  display: inline-block;
+  width: 100%;
+  height: 60%;
+  font-size: 56px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+#guild_description { 
+  display: inline-block;
+  width: 100%;
+  height: 40%;
+  padding-left: 20px;
+  padding-top: 5px;
+  color: #c69b6d;
+}
+
+#guild_body { 
+  display: inline-block;
+  width: 95%;
+  height: 900px;
+  overflow: hidden;
+}
+
+#guild_nav { 
+  display: inline-block;
+  width: 182px;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+

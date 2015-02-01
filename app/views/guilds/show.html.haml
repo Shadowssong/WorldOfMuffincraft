@@ -1,17 +1,16 @@
-.character_wrapper
-  %div{:style => "display: inline-block; width: 100%; height: 110px; overflow: hidden "}
-    %div{:style => "display: inline-block; width: 100%; height: 100%; position: relative; float: left "}
-      %div{:style => "display: inline-block; width: 100%; height: 60%; font-size: 56px; font-weight: bold; padding-left: 20px "}
+#guild_wrapper
+  #guild_header
+    #guild_header_name
+      #guild_name
         = get_guild_name
-      %div{:style => "display: inline-block; width: 100%; height: 40%; padding-left: 20px; padding-top: 5px; color: #c69b6d "}
+      #guild_description
         = get_guild_description 
-  %div{:style => "display: inline-block; width: 95%; height: 900px; overflow: hidden "}
-    %div{:style => "display: inline-block; width: 182px; height: 100%; position: relative; float: left"}
-      %div{:style => "display: inline-block; width: 100%; height: 90%; position: relative; float: left; padding-left: 10px; padding-top: 20px"}
-        %ul{style: "list-style: none"}
-          - @nav_elements.each do |nav|
-            %li= link_to nav
-    %div{:style => "display: inline-block; width: 740px; height: 550px; position: relative; float: left; "}
+  #guild_body
+    #guild_nav
+      %ul{style: "list-style: none"}
+        - @nav_elements.each do |nav|
+          %li= link_to nav
+    %div{:style => "display: inline-block; width: 740px; height: 550px; position: relative; float: left; border: solid "}
       %div{:style => "display: inline-block; width: 100%; height: 10%; position: relative; float: left; font-size: 22px; font-weight: normal; color: #7e3406; padding-left: 20px"}
         Recent News
       %div{:style => "display: inline-block; width: 100%; height: 90%; position: relative; float: left;  "}
