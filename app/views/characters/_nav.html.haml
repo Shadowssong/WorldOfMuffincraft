@@ -6,8 +6,8 @@
     %ul#link_styling
       %li= link_to 'Summary',         character_path(id: "#{@character.name}_#{@realm}")
       %li= link_to 'Hunter Pets',     "/characters/hunter_pets/#{@character.name}_#{@realm}"
-      %li= link_to 'Auctions',        "/characters/auctions/#{@character.name}_#{@realm}"
-      %li= link_to 'Events',          "/characters/events/#{@character.name}_#{@realm}"
+      %li{style: "color: grey"} Auctions
+      %li{style: "color: grey"} Events
       %li= link_to 'Achievements',    "/characters/achievements/#{@character.name}_#{@realm}"
       %li= link_to 'Challenge Mode',  "/characters/challenge_mode/#{@character.name}_#{@realm}"
       %li= link_to 'Pets & Mounts',   "/characters/pets_mounts/#{@character.name}_#{@realm}"
