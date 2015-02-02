@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :characters
+  resources :characters do
+    collection do
+      get 'view', to: 'characters#view', as: :view
+    end
+  end
   resources :guilds
 
   get '/characters/challenge_mode/:id', to: 'characters#challenge_mode'

@@ -1,16 +1,5 @@
 #character_wrapper
-  %table.table
-    %thead
-      %tr
-        %th Character Name
-        %th Realm
-    %tbody
-      %tr 
-        %td= link_to 'Sovrano', character_path(id: "Sovrano_Mal'Ganis")
-        %td Mal'ganis
-      %tr 
-        %td= link_to 'Maschera', character_path(id: "Maschera_Mal'Ganis")
-        %td Mal'ganis
-      %tr 
-        %td= link_to 'Facebacon', character_path(id: "Facebacon_Mal'Ganis")
-        %td Mal'ganis
+  = form_for :character,  url: view_characters_path, method: :get do |f|
+    = f.text_field :name, class: 'form-control'
+    = select('character', 'realm', get_realms, {}, class: 'form-control')
+    = f.submit "Search for character", class: 'btn btn-primary'
