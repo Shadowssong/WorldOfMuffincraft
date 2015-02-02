@@ -5,13 +5,13 @@
   #left_nav_bar_main
     %ul#link_styling
       %li= link_to 'Summary',         character_path(id: "#{@character.name}_#{@realm}")
-      %li= link_to 'Hunter Pets',     "/characters/hunter_pets/#{@character.name}_#{@realm}"
+      %li{style: "color: grey"} Hunter Pets
       %li{style: "color: grey"} Auctions
       %li{style: "color: grey"} Events
       %li= link_to 'Achievements',    "/characters/achievements/#{@character.name}_#{@realm}"
       %li= link_to 'Challenge Mode',  "/characters/challenge_mode/#{@character.name}_#{@realm}"
       %li= link_to 'Pets & Mounts',   "/characters/pets_mounts/#{@character.name}_#{@realm}"
-      %li= link_to 'Professions',     "/characters/professions/#{@character.name}_#{@realm}"
+      %li= link_to 'Progression',     "/characters/progression/#{@character.name}_#{@realm}"
       %li= link_to 'Reputation',      "/characters/reputation/#{@character.name}_#{@realm}"
       %li= link_to 'PvP',             "/characters/pvp/#{@character.name}_#{@realm}"
       %li= link_to 'Activity',        "/characters/activity/#{@character.name}_#{@realm}"

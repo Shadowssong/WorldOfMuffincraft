@@ -2,7 +2,7 @@ require 'battle-muffin'
 require 'date'
 
 class CharactersController < ApplicationController
-  helper_method :build_stats_string, :get_race, :get_background, :get_profile_main, :get_guild, :get_item_url, :name,  :average_item_level, :average_item_level_equipped, :achievement_points, :get_item_id, :get_icon_url, :achievement_array
+  helper_method :build_stats_string, :get_race, :get_background, :get_profile_main, :get_guild, :get_item_url, :name,  :average_item_level, :average_item_level_equipped, :achievement_points, :get_item_id, :get_icon_url, :achievement_array, :get_standing
 
   def index
     #
@@ -19,6 +19,8 @@ class CharactersController < ApplicationController
     @left_column_gear   = ["head", "neck", "shoulder", "back", "chest", "shirt", "tabard", "wrist" ]
     @right_column_gear  = ["hands", "waist", "legs", "feet", "finger1", "finger2", "trinket1", "trinket2" ]
     @mainhand           = [ "mainHand", "offHand" ] 
+    @races              = JSON.parse(File.read('app/helpers/races.json'))['races']
+    @classes            = JSON.parse(File.read('app/helpers/classes.json'))['classes']
   end
 
   def challenge_mode
@@ -29,6 +31,8 @@ class CharactersController < ApplicationController
     @all_info           = @character.all_info
     @items              = @all_info['items']
     @title              = get_current_title(@all_info['titles'])
+    @races              = JSON.parse(File.read('app/helpers/races.json'))['races']
+    @classes            = JSON.parse(File.read('app/helpers/classes.json'))['classes']
   end
 
   def pets_mounts
@@ -39,6 +43,8 @@ class CharactersController < ApplicationController
     @all_info           = @character.all_info
     @items              = @all_info['items']
     @title              = get_current_title(@all_info['titles'])
+    @races              = JSON.parse(File.read('app/helpers/races.json'))['races']
+    @classes            = JSON.parse(File.read('app/helpers/classes.json'))['classes']
   end
 
   def achievements
@@ -49,7 +55,34 @@ class CharactersController < ApplicationController
     @all_info           = @character.all_info
     @items              = @all_info['items']
     @title              = get_current_title(@all_info['titles'])
+    @races              = JSON.parse(File.read('app/helpers/races.json'))['races']
+    @classes            = JSON.parse(File.read('app/helpers/classes.json'))['classes']
   end
+
+  def progression 
+    @client             = BattleMuffin.new("7argtwb4rtuy2ccwcfjs74eapm52juhv") 
+    char_name          = params[:id].split("_").first.strip
+    @realm              = params[:id].split("_").last.strip
+    @character          = @client.character_handler.search(@realm, char_name) 
+    @all_info           = @character.all_info
+    @items              = @all_info['items']
+    @title              = get_current_title(@all_info['titles'])
+    @races              = JSON.parse(File.read('app/helpers/races.json'))['races']
+    @classes            = JSON.parse(File.read('app/helpers/classes.json'))['classes']
+  end
+
+  def reputation 
+    @client             = BattleMuffin.new("7argtwb4rtuy2ccwcfjs74eapm52juhv") 
+    char_name          = params[:id].split("_").first.strip
+    @realm              = params[:id].split("_").last.strip
+    @character          = @client.character_handler.search(@realm, char_name) 
+    @all_info           = @character.all_info
+    @items              = @all_info['items']
+    @title              = get_current_title(@all_info['titles'])
+    @races              = JSON.parse(File.read('app/helpers/races.json'))['races']
+    @classes            = JSON.parse(File.read('app/helpers/classes.json'))['classes']
+  end
+
 
   def get_current_title(titles)
     titles.each do |title|
@@ -67,13 +100,13 @@ class CharactersController < ApplicationController
   end
 
   def get_race
-    @client.get_races['races'].each do |race|
+    @races.each do |race|
       return race['name'] if race['id'] == @character.race
     end
   end
 
   def get_class(class_id)
-    @client.get_character_classes['classes'].each do |character_class|
+    @classes.each do |character_class|
       return character_class['name'] if character_class['id'] == class_id
     end
   end
@@ -162,5 +195,28 @@ class CharactersController < ApplicationController
 
   def get_achievement_name(id)
     Nokogiri::HTML(HTTParty.get("http://www.wowhead.com/achievement=#{id}")).title.split("- Achievement").first.strip
+  end
+
+  def get_standing(standing)
+    case standing
+    when 0
+      "Hated"
+    when 1
+      "Acquaintance"
+    when 2
+      "Unfriendly"
+    when 3
+      "Neutral"
+    when 4
+      "Friendly"
+    when 5
+      "Honored"
+    when 6
+      "Revered"
+    when 7
+      "Exalted"
+    else
+      "Error"
+    end
   end
 end
