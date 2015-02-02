@@ -6,9 +6,9 @@
       #guild_main_frame_title
         Reputation
       %ul#link_styling
-        - @all_info['reputation'].each  do |rep|
+        - @all_info['reputation'].sort_by { |hsh| hsh['standing'] }.reverse.each  do |rep|
           %li{style: "color: #C09A67"}
-            = "#{rep['name']}\t ( #{rep['value']} / #{rep['max']} )\t #{get_standing(rep['standing'])}"
+            = "#{rep['name']} - #{get_standing(rep['standing'])}"
             .progress
               .progress-bar{"aria-valuemax" => rep['max'], "aria-valuemin" => "0", "aria-valuenow" => rep['value'], :role => "progressbar", style: "min-width: 2em; width: #{((rep['value'].to_f / rep['max'].to_f)*100).to_i}%;"}
                 = "#{rep['value']} / #{rep['max']}"
