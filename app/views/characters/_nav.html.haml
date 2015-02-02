@@ -4,16 +4,16 @@
     = achievement_points 
   #left_nav_bar_main
     %ul#link_styling
-      %li= link_to 'Summary',         character_path(id: "#{@character.name}_#{@realm}")
-      %li= link_to 'Hunter Pets',     "/characters/hunter_pets/#{@character.name}_#{@realm}"
-      %li= link_to 'Auctions',        "/characters/auctions/#{@character.name}_#{@realm}"
-      %li= link_to 'Events',          "/characters/events/#{@character.name}_#{@realm}"
-      %li= link_to 'Achievements',    "/characters/achievements/#{@character.name}_#{@realm}"
-      %li= link_to 'Challenge Mode',  "/characters/challenge_mode/#{@character.name}_#{@realm}"
-      %li= link_to 'Pets & Mounts',   "/characters/pets_mounts/#{@character.name}_#{@realm}"
-      %li= link_to 'Professions',     "/characters/professions/#{@character.name}_#{@realm}"
-      %li= link_to 'Reputation',      "/characters/reputation/#{@character.name}_#{@realm}"
-      %li= link_to 'PvP',             "/characters/pvp/#{@character.name}_#{@realm}"
-      %li= link_to 'Activity',        "/characters/activity/#{@character.name}_#{@realm}"
-      %li= link_to 'Feed',            "/characters/feed/#{@character.name}_#{@realm}"
-      %li= link_to 'Guild',           "/characters/guild/#{@character.name}_#{@realm}"
+      %li= link_to 'Summary',         view_characters_path(character: { name: @character.name, realm: @realm }  )
+      %li{style: "color: grey"} Hunter Pets
+      %li{style: "color: grey"} Auctions
+      %li{style: "color: grey"} Events
+      %li= link_to 'Achievements',    achievements_path(id: @character.name, character: { name: @character.name, realm: @realm }  )
+      %li= link_to 'Challenge Mode',  challenge_mode_path(id: @character.name, character: { name: @character.name, realm: @realm }  )
+      %li= link_to 'Pets & Mounts',   pets_mounts_path(id: @character.name, character: { name: @character.name, realm: @realm }  )
+      %li= link_to 'Progression',     progression_path(id: @character.name, character: { name: @character.name, realm: @realm }  )
+      %li= link_to 'Reputation',      reputation_path(id: @character.name, character: { name: @character.name, realm: @realm }  )
+      -#%li= link_to 'PvP',             pvp_path(character: { name: @character.name, realm: @realm }  )
+      -#%li= link_to 'Activity',        activity_path(character: { name: @character.name, realm: @realm }  )
+      -#%li= link_to 'Feed',            feed_path(character: { name: @character.name, realm: @realm }  )
+      -#%li= link_to 'Guild',           guild_path(character: { name: @character.name, realm: @realm }  )

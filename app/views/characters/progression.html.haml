@@ -1,0 +1,23 @@
+#character_wrapper{style: "height: 1000px; "}
+  = render partial: 'header'
+  #character_main_div{style: "height: 1000px;"}
+    = render partial: 'nav'
+    #character_body{style: "color: 7e3406;"}
+      #guild_main_frame_title
+        Raid Progression 
+      %table.table.table-hover{style: "color: #7e3406;"}
+        %thead
+          %tr
+            %th
+            %th LFR
+            %th Normal
+            %th Heroic
+            %th Mythic
+        %tbody
+          - @all_info['progression']['raids'].reverse.each do |progression|
+            %tr 
+              %td= progression['name']
+              %td= progression['lfr']
+              %td= progression['normal']
+              %td= progression['heroic']
+              %td= progression['mythic']

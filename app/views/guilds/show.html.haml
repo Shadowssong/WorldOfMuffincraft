@@ -18,7 +18,7 @@
           -get_news_feed.each do |news|
             %li
               %hr
-              = link_to news['character'], character_path(id: "#{news['character']}_#{@realm}")
+              = link_to news['character'], view_characters_path(character: { name: news['character'], realm: @realm } )
               = news['string']
               %a.q3{:href => "http://www.wowhead.com/item=#{news['item_id']}", rel: "item=#{news['item_id']}"}
                 = news['link']
